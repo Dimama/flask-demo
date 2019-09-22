@@ -32,3 +32,10 @@ $ psql -h localhost -U program flaskdemo
 |/track| POST | create track| Required: artist, name | 
 |/track/<track_id>| GET | get track| track_id |
 |/track/<track_id>| DELETE | delete track| track_id | 
+
+### Useful links
+
+- [Virtual Environment](https://virtualenv.pypa.io/en/latest/userguide/)
+- [FLask](http://flask.palletsprojects.com/en/1.1.x/)
+- [Flask-restful](https://flask-restful.readthedocs.io/en/latest/)
+- [SqlAlchemy](https://www.sqlalchemy.org/)
