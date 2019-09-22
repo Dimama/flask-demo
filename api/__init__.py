@@ -1,7 +1,7 @@
 from flask import Flask, current_app
 from flask_restful import Api
 
-from api.resources import Stub
+from api.resources import Stub, Artist, Track
 from db_wrapper import DBWrapper
 
 from config import DB_HOST, DB_PORT, DB_PASSWORD, DB_USER, DATABASE
@@ -15,4 +15,7 @@ def create_app():
 
     api = Api(app)
     api.add_resource(Stub, '/stub')
+    api.add_resource(Artist, '/artist', '/artist/<int:artist_id>')
+    api.add_resource(Track, '/track', '/track/<int:track_id>')
+
     return app
