@@ -20,3 +20,15 @@ $ psql -h localhost -U program flaskdemo
 
 ### Run
 - `python app.py`
+
+### API
+| URI| METHOD| Description | PARAMS|
+| :---:              | :---:|    :---:      |:---: |
+|/artist| POST | create artist| Required: name, genre | 
+|/artist| GET | get all artists| - |
+|/artist/<artist_id>| GET | get artist| artist_id |
+|/artist/<artist_id>| DELETE | delete artist| artist_id |
+|  | |  | |
+|/track| POST | create track| Required: artist, name | 
+|/track/<track_id>| GET | get track| track_id |
+|/track/<track_id>| DELETE | delete track| track_id | 
