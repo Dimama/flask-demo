@@ -1,7 +1,7 @@
 from http import HTTPStatus
 
 from flask_restful import Resource, reqparse
-from flask import current_app, request
+from flask import current_app, request, render_template, make_response
 
 
 class Artist(Resource):
@@ -15,7 +15,10 @@ class Artist(Resource):
     def get(self, artist_id: int = None):
         if artist_id is None:
             artists = current_app.db_wrapper.get_artists()
-            return {"Artists": artists}, HTTPStatus.OK
+            # server rendering
+            return make_response(render_template("artists.html", title="ARTISTS", artists=artists),
+                                 HTTPStatus.OK,
+                                 {'Content-Type': 'text/html'})
 
         artist = current_app.db_wrapper.get_artist(artist_id)
         if artist is None:

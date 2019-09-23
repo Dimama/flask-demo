@@ -1,0 +1,51 @@
+<html>
+    <head>
+        <title>{{ title }}</title>
+        <style type="text/css">
+           table {
+            border-collapse: collapse;
+            width: 300px;
+           }
+           tr, td {
+            border: 1px solid black;
+            text-align: center;
+            padding: 4px;
+           }
+           th {
+            background: #fc0;
+            height: 40px;
+            vertical-align: bottom;
+            padding: 0;
+           }
+        </style>
+    </head>
+    <body>
+        <h1>{{ title }}</h1>
+        {% if not artists%}
+        <h1>Artists not found</h1>
+        {% else %}
+        <table style="border: 1px solid black;">
+            <thead>
+            <tr>
+                <TD>id</TD>
+                <td>name</td>
+                <td>genre</td>
+                <td>founding_date</td>
+                <td>country</td>
+            </tr>
+            </thead>
+            <tbody>
+            {% for artist in artists %}
+                <tr>
+                    <td>{{ artist.id }}</td>
+                    <td>{{ artist.name }}</td>
+                    <td>{% if not artist.genre %}-{% else %}{{artist.genre}}{% endif %}</td>
+                    <td>{% if not artist.founding_date %}-{% else %}{{artist.founding_date}}{% endif %}</td>
+                    <td>{% if not artist.country %}-{% else %}{{artist.country}}{% endif %}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        {% endif %}
+    </body>
+</html>
